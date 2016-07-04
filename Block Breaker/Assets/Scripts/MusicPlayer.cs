@@ -2,18 +2,20 @@
 
 public class MusicPlayer : MonoBehaviour
 {
-    private static MusicPlayer instance = null;
+    private static MusicPlayer instanceMusicPlayer = null;
 	// Use this for initialization
 	void Start () {
-	    if (instance != null)
+	    if (instanceMusicPlayer != null)
 	    {
 	        Destroy(gameObject);
+	        print("Duplic music player self-destructing");
 	    }
 	    else
 	    {
-	        instance = this;
+	        instanceMusicPlayer = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
+	    
 	}
 	
 	// Update is called once per frame
